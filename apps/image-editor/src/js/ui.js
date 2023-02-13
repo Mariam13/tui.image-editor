@@ -41,6 +41,7 @@ const SUB_UI_COMPONENT = {
 
 const BI_EXPRESSION_MINSIZE_WHEN_TOP_POSITION = '1300';
 const HISTORY_MENU = 'history';
+const HIDDEN_MENU_ITEMS = ['history', 'shape', 'mask', 'draw', 'filter'];
 const HISTORY_PANEL_CLASS_NAME = 'tie-panel-history';
 
 const CLASS_NAME_ON = 'on';
@@ -455,6 +456,9 @@ class Ui {
     const menuItemHtml = this.theme.makeMenSvgIconSet(useIconTypes, menuName);
 
     this._addTooltipAttribute(btnElement, menuName);
+    if (HIDDEN_MENU_ITEMS.includes(menuName)) {
+      btnElement.style.display = 'none';
+    }
     btnElement.className = `tie-btn-${menuName} ${cls('item')} ${menuType}`;
     btnElement.innerHTML = menuItemHtml;
 

@@ -6,7 +6,7 @@
  */
 export default ({ locale, makeSvgIcon }) => `
     <ul class="tui-image-editor-submenu-item">
-        <li class="tie-icon-add-button">
+        <!-- <li class="tie-icon-add-button">
             <div class="tui-image-editor-button" data-icontype="icon-arrow">
                 <div>
                     ${makeSvgIcon(['normal', 'active'], 'icon-arrow', true)}
@@ -86,7 +86,7 @@ export default ({ locale, makeSvgIcon }) => `
         </li>
         <li class="tui-image-editor-partition">
             <div></div>
-        </li>
+        </li> -->
         <li class="tie-icon-add-button">
             <div class="tui-image-editor-button" style="margin:0">
                 <div>
@@ -94,14 +94,14 @@ export default ({ locale, makeSvgIcon }) => `
                     ${makeSvgIcon(['normal', 'active'], 'icon-load', true)}
                 </div>
                 <label>
-                    ${locale.localize('Custom icon')}
+                    ${locale.localize('Upload icon')}
                 </label>
             </div>
         </li>
-        <li class="tui-image-editor-partition">
+        <!-- <li class="tui-image-editor-partition">
             <div></div>
-        </li>
-        <li>
+        </li> -->
+        <li style="display: none;">
             <div class="tie-icon-color" title="${locale.localize('Color')}"></div>
         </li>
     </ul>

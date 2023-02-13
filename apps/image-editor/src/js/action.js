@@ -214,21 +214,29 @@ export default {
           this.registerIcons(iconObj);
         },
         registerCustomIcon: (imgUrl, file) => {
-          const imagetracer = new Imagetracer();
-          imagetracer.imageToSVG(
-            imgUrl,
-            (svgstr) => {
-              const [, svgPath] = svgstr.match(/path[^>]*d="([^"]*)"/);
-              const iconObj = {};
-              iconObj[file.name] = svgPath;
-              this.registerIcons(iconObj);
-              this.addIcon(file.name, {
-                left: 100,
-                top: 100,
-              });
-            },
-            Imagetracer.tracerDefaultOption()
-          );
+          this.addImageObject(imgUrl).then(objectProps => {
+            // this.setObjectPosition(objectProps.id, {
+            //   x: 100,
+            //   y: 100,
+            //   originX: 'left',
+            //   originY: 'top'
+            // });
+          });
+          // const imagetracer = new Imagetracer();
+          // imagetracer.imageToSVG(
+          //   imgUrl,
+          //   (svgstr) => {
+          //     const [, svgPath] = svgstr.match(/path[^>]*d="([^"]*)"/);
+          //     const iconObj = {};
+          //     iconObj[file.name] = svgPath;
+          //     this.registerIcons(iconObj);
+          //     this.addIcon(file.name, {
+          //       left: 100,
+          //       top: 100,
+          //     });
+          //   },
+          //   Imagetracer.tracerDefaultOption()
+          // );
         },
       },
       this._commonAction()
